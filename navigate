@@ -1,0 +1,28 @@
+package testScripts;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class TC002 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		System.setProperty("webdriver.chrome.driver", "C:\\browser drivers\\chromedriver.exe");
+		WebDriver driver = new ChromeDriver();
+		driver.get("http://www.google.com");
+//		driver.navigate().to("http://facebook.com");
+		driver.get("http://www.fb.com");
+//		driver.navigate().refresh();
+		driver.navigate().back();
+		if(driver.getTitle().equals("Google"))
+			System.out.println("Navigated to Google");
+		else
+			System.out.println("Navigation failed to Google");
+		driver.navigate().forward();
+		if(driver.getTitle().contains("Facebook"))
+			System.out.println("Navigated to Facebook");
+		else
+			System.out.println("Navigation failed to Facebook");	
+		driver.quit();
+	}
+}
